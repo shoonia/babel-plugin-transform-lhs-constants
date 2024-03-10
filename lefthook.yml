@@ -1,0 +1,8 @@
+pre-commit:
+  parallel: true
+  commands:
+    types:
+      run: npx tsc
+      skip:
+        - merge
+        - rebase
