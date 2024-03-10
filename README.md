@@ -5,8 +5,8 @@
 The [Babel](https://babeljs.io/) plugin to move constant values to the left-hand side of binary nodes.
 
 ```diff
-- typeof foo === 'string'
-+ 'string' === typeof foo
+- typeof foo === "string"
++ "string" === typeof foo
 ```
 
 ## Install
