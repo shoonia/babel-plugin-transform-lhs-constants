@@ -8,7 +8,7 @@ const equalities = new Set<BinaryExpression['operator']>([
   '!==',
 ]);
 
-const types = new Set<Node['type']>([
+const literals = new Set<Node['type']>([
   'NullLiteral',
   'StringLiteral',
   'NumericLiteral',
@@ -20,6 +20,8 @@ const types = new Set<Node['type']>([
 const plugin = declarePlugin((api) => {
   api.assertVersion(7);
 
+  const t = api.types;
+
   return {
     name: 'transform-lhs-constants',
     visitor: {
@@ -28,7 +30,7 @@ const plugin = declarePlugin((api) => {
 
         if (
           equalities.has(node.operator) &&
-          types.has(node.right.type)
+          literals.has(node.right.type) || t.isIdentifier(node.right, { name: 'undefined' })
         ) {
           [node.left, node.right as Node] = [node.right, node.left];
         }
