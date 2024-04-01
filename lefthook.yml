@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   commands:
     types:
-      run: npx tsc
+      run: npm test
       skip:
         - merge
         - rebase
