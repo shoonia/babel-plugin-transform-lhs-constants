@@ -1,10 +1,15 @@
-import { strictEqual } from 'node:assert/strict';
+import { strictEqual, fail } from 'node:assert/strict';
 import { transformAsync } from '@babel/core';
 
-import plugin from '../src/index.js';
+// @ts-expect-error
+import plugin from '../dist/index.cjs';
 
-export const expect = (source: string) => ({
-  async toBeTransform(expected: string) {
+export const expect = <T>(source: T) => ({
+  async toBeTransform(expected: T) {
+    if (typeof source !== 'string') {
+      return fail();
+    }
+
     const result = await transformAsync(source, {
       plugins: [plugin],
       ast: false,

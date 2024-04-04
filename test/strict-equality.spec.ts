@@ -9,4 +9,20 @@ describe('strict equality', () => {
   it('should be transform undefined', async () => {
     await expect('foo === undefined').toBeTransform('undefined === foo;');
   });
+
+  it('should be transform number', async () => {
+    await expect('foo === 1').toBeTransform('1 === foo;');
+  });
+
+  it('should be transform big int', async () => {
+    await expect('foo === 4n').toBeTransform('4n === foo;');
+  });
+
+  it('should be transform null', async () => {
+    await expect('foo === null').toBeTransform('null === foo;');
+  });
+
+  it('should be transform boolean', async () => {
+    await expect('foo === true').toBeTransform('true === foo;');
+  });
 });

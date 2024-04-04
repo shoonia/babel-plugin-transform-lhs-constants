@@ -1,4 +1,4 @@
-import type { Node, BinaryExpression } from '@babel/types';
+import type { Node, BinaryExpression, Identifier } from '@babel/types';
 import { declare as declarePlugin } from '@babel/helper-plugin-utils';
 
 const equalities = new Set<BinaryExpression['operator']>([
@@ -22,6 +22,9 @@ const plugin = declarePlugin((api) => {
 
   const t = api.types;
 
+  const isLiteral = (node: Node): node is Identifier =>
+    literals.has(node.type) || t.isIdentifier(node, { name: 'undefined' });
+
   return {
     name: 'transform-lhs-constants',
     visitor: {
@@ -30,7 +33,7 @@ const plugin = declarePlugin((api) => {
 
         if (
           equalities.has(node.operator) &&
-          literals.has(node.right.type) || t.isIdentifier(node.right, { name: 'undefined' })
+          isLiteral(node.right) && !isLiteral(node.left)
         ) {
           [node.left, node.right as Node] = [node.right, node.left];
         }
