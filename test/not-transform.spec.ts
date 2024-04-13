@@ -8,6 +8,7 @@ describe('no transfrom', () => {
     'undefined != null;',
     'true == null;',
     '"hello" == 1n;',
+    'null != void 0;'
   ];
 
   list.forEach((code) => {

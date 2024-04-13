@@ -10,6 +10,10 @@ describe('loose not equality', () => {
     await expect('foo != undefined').toBeTransform('undefined != foo;');
   });
 
+  it('should be transform void 0', async () => {
+    await expect('foo != void 0').toBeTransform('void 0 != foo;');
+  });
+
   it('should be transform number', async () => {
     await expect('foo != 1').toBeTransform('1 != foo;');
   });
