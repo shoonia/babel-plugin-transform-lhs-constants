@@ -1,13 +1,13 @@
 {
   "name": "babel-plugin-transform-lhs-constants",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "The Babel plugin to move constant values to the left-hand side of binary nodes",
   "main": "dist/index.cjs",
   "exports": "./dist/index.cjs",
   "types": "./index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "rollup -c",
+    "build": "NODE_NO_WARNINGS=1 rollup -c",
     "test": "NODE_NO_WARNINGS=1 node --experimental-loader ts-node/esm --test test/*.spec.ts"
   },
   "peerDependencies": {
