@@ -18,14 +18,14 @@
     "@babel/core": "^7.24.4",
     "@babel/preset-typescript": "^7.24.1",
     "@babel/types": "^7.24.0",
-    "@evilmartians/lefthook": "^1.6.8",
+    "@evilmartians/lefthook": "^1.6.10",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/babel__helper-plugin-utils": "^7.10.3",
-    "@types/node": "^20.12.4",
-    "rollup": "^4.14.0",
+    "@types/node": "^20.12.7",
+    "rollup": "^4.14.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "files": [
     "dist",

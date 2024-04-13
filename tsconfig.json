@@ -25,6 +25,10 @@
       "ES2023"
     ]
   },
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true
+  },
   "include": [
     "src",
     "test"
