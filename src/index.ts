@@ -1,4 +1,4 @@
-import type { Node, BinaryExpression, Identifier } from '@babel/types';
+import type { Node, BinaryExpression } from '@babel/types';
 import { declare as declarePlugin } from '@babel/helper-plugin-utils';
 
 const equalities = new Set<BinaryExpression['operator']>([
@@ -22,7 +22,7 @@ const plugin = declarePlugin((api) => {
 
   const t = api.types;
 
-  const isLiteral = (node: Node): node is Identifier =>
+  const isLiteral = (node: Node): boolean =>
     literals.has(node.type) ||
     t.isIdentifier(node, { name: 'undefined' }) ||
     t.isUnaryExpression(node, { operator: 'void' }) && t.isNumericLiteral(node.argument, null)
