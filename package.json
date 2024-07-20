@@ -15,17 +15,18 @@
     "@babel/helper-plugin-utils": "^7.0.0-0"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.4",
-    "@babel/preset-typescript": "^7.24.1",
-    "@babel/types": "^7.24.0",
-    "@evilmartians/lefthook": "^1.6.10",
+    "@babel/core": "^7.24.9",
+    "@babel/helper-plugin-utils": "^7.24.8",
+    "@babel/preset-typescript": "^7.24.7",
+    "@babel/types": "^7.24.9",
+    "@evilmartians/lefthook": "^1.7.4",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/babel__helper-plugin-utils": "^7.10.3",
-    "@types/node": "^20.12.7",
-    "rollup": "^4.14.2",
+    "@types/node": "^20.14.11",
+    "rollup": "^4.19.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.3"
   },
   "files": [
     "dist",

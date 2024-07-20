@@ -25,7 +25,7 @@ const plugin = declarePlugin((api) => {
   const isLiteral = (node: Node): boolean =>
     literals.has(node.type) ||
     t.isIdentifier(node, { name: 'undefined' }) ||
-    t.isUnaryExpression(node, { operator: 'void' }) && t.isNumericLiteral(node.argument, null)
+    t.isUnaryExpression(node, { operator: 'void' }) && t.isNumericLiteral(node.argument, null);
 
   return {
     name: 'transform-lhs-constants',
@@ -39,7 +39,7 @@ const plugin = declarePlugin((api) => {
         ) {
           [node.left, node.right as Node] = [node.right, node.left];
         }
-      }
+      },
     },
   };
 });
