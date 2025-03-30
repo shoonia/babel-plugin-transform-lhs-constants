@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "build": "NODE_NO_WARNINGS=1 rollup -c",
-    "test": "NODE_NO_WARNINGS=1 node --experimental-loader ts-node/esm --test test/*.spec.ts"
+    "test": "NODE_NO_WARNINGS=1 node --experimental-strip-types --test test/*.spec.ts"
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0-0",
@@ -25,7 +25,6 @@
     "@types/babel__helper-plugin-utils": "^7.10.3",
     "@types/node": "^22.13.14",
     "rollup": "^4.38.0",
-    "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
   "files": [

@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test';
-import { expect } from './expect.js';
+import { expect } from './expect.ts';
 
 describe('loose equality', () => {
   it('should be transform string', async () => {
