@@ -15,6 +15,7 @@ const literals = new Set<Node['type']>([
   'NumberLiteral', // @deprecated
   'BigIntLiteral',
   'BooleanLiteral',
+  'TemplateLiteral',
 ]);
 
 const plugin = declarePlugin((api) => {
