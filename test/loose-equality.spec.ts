@@ -2,8 +2,16 @@ import { describe, it } from 'node:test';
 import { expect } from './expect.ts';
 
 describe('loose equality', () => {
-  it('should be transform string', async () => {
+  it('should be transform string double quotes', async () => {
     await expect('typeof foo == "string"').toBeTransform('"string" == typeof foo;');
+  });
+
+  it('should be transform string single quotes', async () => {
+    await expect("typeof foo == 'string'").toBeTransform("'string' == typeof foo;");
+  });
+
+  it('should be transform string literal', async () => {
+    await expect('typeof foo == `string`').toBeTransform('`string` == typeof foo;');
   });
 
   it('should be transform undefined', async () => {
