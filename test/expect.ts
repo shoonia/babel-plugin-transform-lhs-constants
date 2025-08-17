@@ -1,8 +1,7 @@
 import { strictEqual, fail } from 'node:assert/strict';
 import { transformAsync } from '@babel/core';
 
-// @ts-expect-error
-import plugin from '../dist/index.cjs';
+import plugin from '../src/index.ts';
 
 export const expect = <T>(source: T) => ({
   async toBeTransform(expected: T) {
@@ -14,7 +13,9 @@ export const expect = <T>(source: T) => ({
       plugins: [plugin],
       ast: false,
       babelrc: false,
+      configFile: false,
       sourceMaps: false,
+      comments: false,
     });
 
     return strictEqual(result?.code, expected);
