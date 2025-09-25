@@ -1,5 +1,7 @@
+import type * as babel from '@babel/core';
 import type { Node, BinaryExpression } from '@babel/types';
-import { declare as declarePlugin } from '@babel/helper-plugin-utils';
+
+type Plugin = (api: typeof babel) => babel.PluginObj<babel.PluginPass>;
 
 const equalities = new Set<BinaryExpression['operator']>([
   '==',
@@ -18,9 +20,7 @@ const literals = new Set<Node['type']>([
   'TemplateLiteral',
 ]);
 
-const plugin = declarePlugin((api) => {
-  api.assertVersion(7);
-
+const plugin: Plugin = (api) => {
   const t = api.types;
 
   const isLiteral = (node: Node): boolean =>
@@ -43,6 +43,6 @@ const plugin = declarePlugin((api) => {
       },
     },
   };
-});
+};
 
 export { plugin as default };
