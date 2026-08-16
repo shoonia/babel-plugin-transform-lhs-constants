@@ -25,6 +25,9 @@
     "skipLibCheck": true,
     "lib": [
       "ES2024"
+    ],
+    "types": [
+      "node"
     ]
   },
   "include": [
